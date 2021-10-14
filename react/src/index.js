@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       <h3>Webpack Template for React!</h3>
-      <img src="images/icon.svg" alt="Chinese hanzi for Serenity " />;
+      <img src="images/icon.svg" alt="Webpack Logo" />;
     </div>
   );
 };
