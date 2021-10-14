@@ -1,0 +1,8 @@
+# Directories to ignore:
+/node_modules/
+/dist/
+
+# Specific files to ignore
+.env
+yarn.lock
+package-lock.json
