@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
@@ -11,6 +12,8 @@ module.exports = {
       directory: path.join(__dirname, "public"),
     },
     compress: true,
+    hot: true,
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -32,8 +35,14 @@ module.exports = {
           "style-loader",
           // Translates CSS into CommonJS
           "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
+          {
+            loader: "postcss-loader",
+            //   options: {
+            //     postcssOptions: {
+            //       plugins: ["postcss-preset-env"],
+            //     },
+            //   },
+          },
         ],
       },
       {
@@ -59,6 +68,7 @@ module.exports = {
         // { from: "other", to: "public" },
       ],
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   output: {
     filename: "bundle.js",
